@@ -7,18 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers
 {
     [ApiVersion("2.0")]
-    [Route("api/{v:apiVersion}/values")]
+    [Route("api/V2/values")]
     [ApiController]
     public class ValuesV2Controller : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Get() => new string[]
         {
-            return new string[]
-            {
-                "value1 from Version 2",
-                "value2 from Version 2"
-            };
-        }
+            "value1 from Version 2",
+            "value2 from Version 2"
+        };
     }
 }

@@ -9,7 +9,7 @@ namespace WebApi.Controllers
     //弃用设置deprecated=true
     [ApiVersion("1.0",Deprecated =true)]
     //路由设置版本号
-    [Route("api/{v:apiVersion}/values")]
+    [Route("api/values")]
     [ApiController]
     public class ValuesV1Controller : ControllerBase
     {

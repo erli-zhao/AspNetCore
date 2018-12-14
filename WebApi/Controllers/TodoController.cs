@@ -53,6 +53,39 @@ namespace WebApi.Controllers
 
             return CreatedAtRoute("GetTodo", new { id = item.Id }, item);
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(long id,[FromBody] TodoItem item)
+        {
+            if (item==null||item.Id!=id)
+            {
+                return BadRequest();
+            }
+            var todo = _context.todoItems.Find(id);
+            if (todo==null)
+            {
+                return NotFound();
+            }
+            todo.IsComplete = item.IsComplete;
+            todo.Name = item.Name;
+
+            _context.todoItems.Update(todo);
+            _context.SaveChanges();
+            return NoContent();
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(long id)
+        {
+            var todo = _context.todoItems.Find(id);
+            if (todo==null)
+            {
+                return NotFound();
+            }
+            _context.todoItems.Remove(todo);
+            _context.SaveChanges();
+            return NoContent();
+        }
     }
 
 }
