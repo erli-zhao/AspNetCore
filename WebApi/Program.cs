@@ -12,9 +12,10 @@ namespace WebApi
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static string Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
+            return "";
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

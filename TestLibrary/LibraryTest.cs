@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TestLibrary
 {
     [TestClass]
+    [Auth("LibraryTest")]
     public class LibraryTest
     {
         [TestMethod]
